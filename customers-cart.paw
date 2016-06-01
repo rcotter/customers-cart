@@ -197,7 +197,7 @@
     </object>
     <object type="LMREQUEST" id="z115">
         <attribute name="uuid" type="string">FC2718C9-DC0E-417F-975A-AEB3A7E85F63</attribute>
-        <attribute name="url" type="string">http://localhost:3000/api/v1/customers/123/items/3aace33f-6b19-46bb-b0bc-063e602a21c7</attribute>
+        <attribute name="url" type="string">http://localhost:3000/api/v1/customers/123/items/8a3f9d4a-2843-4405-9ccf-4cb853e916af</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -209,7 +209,7 @@
         <attribute name="name" type="string">Purchase an item that from a customer's shopping cart</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z116 z123 z124"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z123 z116 z124"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z116">
         <attribute name="value" type="string">Basic R09PRA==</attribute>
