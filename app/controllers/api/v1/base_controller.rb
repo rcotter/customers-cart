@@ -36,7 +36,7 @@ class Api::V1::BaseController < ActionController::Base
   #
   # Render 401 response on failure.
   def authenticate
-    authorization = request.headers['HTTP_AUTHORIZATION']#.try(:dup)
+    authorization = request.headers['HTTP_AUTHORIZATION']
     return render_error('Authorization header required', :unauthorized) unless authorization.present?
 
     token_type, token = authorization.split
