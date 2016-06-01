@@ -1,0 +1,23 @@
+development:
+  log_level: 0                # Debug with SQL logging
+  fraud_protection_service:
+    simulate?: true
+    uri: 'http://qa-fraud-protection-service.company.com/api'
+
+test:
+  log_level: 0                # Debug with SQL logging
+  fraud_protection_service:
+    simulate?: true
+    uri: 'http://qa-fraud-protection-service.company.com/api'
+
+qa:
+  log_level: 0                # Debug with SQL logging
+  fraud_protection_service:
+    simulate?: false
+    uri: 'http://qa-fraud-protection-service.company.com/api'
+
+production:
+  log_level: 1                # Info with SQL logging
+  fraud_protection_service:
+    simulate?: false
+    uri: 'http://fraud-protection-service.company.com/api'

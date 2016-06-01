@@ -1,0 +1,4 @@
+development:
+  log_level: 1
+  fraud_protection_service:
+    simulate?: true
