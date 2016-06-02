@@ -2,7 +2,7 @@
 
 This is an example of my work with Rails...keepin' my beginner's mind wide open.
 
-A simple API to create a customer, running an external call to run fraud protection profiling on them. Add items to their shopping cart. Purchase those items.
+A simple API to create a customer, running an external call to construct their fraud protection profile. Then add items to their shopping cart and finally purchase those items.
 
 It's a contrived example to capture my knowledge at a point in time...meaning I likely know more by now. :)
 
@@ -123,7 +123,7 @@ Content-Type: application/json; charset=utf-8
 }
 ````
 
-### Purchase an item that from a customer's shopping cart
+### Purchase an item in a customer's shopping cart
 Substitute in the item ID to purchase as per GET customer then
 #### Request
 ```
@@ -193,12 +193,10 @@ a ||= 'c'   # a == 'b' i.e. no change
 ### Good Gems
 
 * [apartment](https://github.com/influitive/apartment) Need an app or API that has test mode?
-Often we're writing an app or API that customers will integrate with in a testing mode. They don't want to incur some
-expense while they're just figuring things out. We'll stub those out those integrations. But how do we stop pollution of the database? Also, 
-we don't want to set up another environment and keep it perfectly synced to production. Awesome!
+Often we're writing an app or API that customers will integrate with in a staging/testing mode. They don't want to incur some expense while they're just figuring things out. We'll stub those out those integrations. But how do we stop pollution of the database? Also, we don't want to set up another environment and keep it perfectly synced to production. Awesome!
 * [browser-timezone-rails](https://github.com/kbaum/browser-timezone-rails) sets Rails timezone to browser's configured timezone.
 * [mailcatcher](https://mailcatcher.me/) for local SMTP email testing.
-* [money-rails](https://github.com/RubyMoney/money-rails) for money money money.
+* [money-rails](https://github.com/RubyMoney/money-rails) for :money_with_wings: :credit_card: :moneybag:
 * [attribute_normalizer](https://github.com/mdeering/attribute_normalizer) Sure, we should put some onus on the API consumer to sanitize input.
 but sometimes that can be too much - a barrier to integration by less technical parties. Remember, your API needs good UX too!
 To ensure we get the input we want we should sanitize. For example, 
@@ -222,6 +220,8 @@ and you can easily seed data since you're still inside your server. Use it until
 Not really a problem Rails but instead a design concept. Split that monolithic app into pieces. Don't integrate at the database. 
 Nevermind that working with two projects and their migrations on one database is not fun, unwinding that will be even worse.
 Maybe it is even time to try something non-rails. :) Don't believe me? You don't have to.
+
+Downside? More moving pieces. WHEN to take this step is key.
 
 ## A Few Of My Least Favorite Things
 ### JSON cleansing - what you see is not what you get
@@ -252,7 +252,7 @@ Enums are a better choice since:
 * They can be validated easily
 
 #### Dates are hard to validate
-Similar to booleans, when a non-date is assigned to an ActiveRecord model it is cast to a date. Custom validation must be used in which this funky snippet is valuable.
+Similar to booleans, when a non-date is assigned to an ActiveRecord model it is cast to a date. Custom validation must be used in which case this funky snippet is valuable.
 
 ```
 # Use:
@@ -283,6 +283,6 @@ of use cases and team commitment but it can be worth. Half of Rails seems to be 
 packing and unpacking data - often to and from what is a document.
 
 #### Model callbacks are cool...until they're not
-***Holy hidden behaviour Batman!***
+***Holy side effects Batman!***
 
 
