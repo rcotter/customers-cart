@@ -1,8 +1,8 @@
-# Customers Cart
+# Customers Cart API
 
 This is an example of my work with Rails...keepin' my beginner's mind wide open.
 
-Create a customer, running an external call to run fraud protection profiling on them. Add items to their shopping cart. Purchase those items. 
+A simple API to create a customer, running an external call to run fraud protection profiling on them. Add items to their shopping cart. Purchase those items.
 
 It's a contrived example to capture my knowledge at a point in time...meaning I likely know more by now. :)
 
