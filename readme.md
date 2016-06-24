@@ -134,7 +134,7 @@ curl -X "PATCH" "http://localhost:3000/api/v1/customers/123/items/[ITEM ID]" -H 
 HTTP/1.1 200 OK
 Content-Type: text/plain; charset=utf-8
 ````
-## A Few of My Favorite Things
+## A Few Of My Favorite Things
 
 Ruby and Rails are full of these of course but here are my favourites:
 
@@ -166,7 +166,33 @@ end
 
 ### Strong Config
 Make sure your config exists exactly as you expect and provide cleaner access
-by loading it into a nested OpenStruct. Elegant! See strong_config.rb
+by loading it into a nested OpenStruct. Elegant! Note, it lacks environment variables for secure production use.
+```
+# Global config with benefits:
+# - Enables object like access E.g. AppConfig.simulate? instead of APP_CONFIG['simulate?']
+# - Trying AppConfig.missing_property where 'missing_property' does not exist raises an error.
+#
+# Examples:
+#
+#   AppConfig.key instead of CONFIG['key']
+#   AppConfig.nested.key instead of CONFIG['nested']['key']
+#
+class StrongConfig < OpenStruct
+
+  # Build the strong configuration object from a raw hash that can have nested hierarchy
+  #
+  # @param [Hash] config
+  def self.build(config)
+    JSON.parse(config.to_json, object_class: StrongConfig)
+  end
+
+  # Raises an error if the member is missing
+  def method_missing(member, *args)
+    raise "#{self.class.name} missing member '#{member}'" unless member.to_s.end_with?('=')
+    super
+  end
+end
+```
 
 ### Safe navigation
 Both have their use cases but the new `&.` is arguably better when possible.
@@ -188,6 +214,15 @@ Classic. If you don't know this where have you been?
 a = nil     # a == nil
 a ||= 'b'   # a == 'b'
 a ||= 'c'   # a == 'b' i.e. no change
+```
+
+### A constant lookup with default
+```
+LOOKUP = {
+    'a' => 1,
+    'b' => 2,
+    'c' => 3
+}.tap { |h| h.default = 0 }
 ```
 
 ### Good Gems
